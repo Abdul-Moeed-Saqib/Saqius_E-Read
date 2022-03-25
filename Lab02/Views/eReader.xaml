@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab02.Views"
+        xmlns:PdfViewer="clr-namespace:Syncfusion.Windows.PdfViewer;assembly=Syncfusion.PdfViewer.WPF" x:Class="Lab02.Views.eReader"
+        mc:Ignorable="d"
+        Title="eReader" Height="865.516" Width="1141.643" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Grid>
+
+        <PdfViewer:PdfViewerControl x:Name="eReaderControl" HorizontalAlignment="Left" Margin="10,51,0,-19" VerticalAlignment="Top" Height="805" Width="1122"/>
+        <Button x:Name="backButton" BorderBrush="Black" BorderThickness="2" Content="Back" HorizontalAlignment="Left" Margin="979,10,0,0" VerticalAlignment="Top" Width="134" Click="backButton_Click" Height="41" Background="#FF6D3478" Foreground="#FFF3E8E8" FontFamily="Comic Sans MS" FontSize="22"/>
+        <Button x:Name="BookmarkButton" BorderBrush="Black" BorderThickness="2" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="48" Height="41" Click="BookmarkButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="bookmark-131964752402712733.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>

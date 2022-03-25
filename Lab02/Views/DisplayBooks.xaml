@@ -1,0 +1,33 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab02.Views"
+        xmlns:PdfViewer="clr-namespace:Syncfusion.Windows.PdfViewer;assembly=Syncfusion.PdfViewer.WPF" xmlns:Data="clr-namespace:Lab02.Data" x:Class="Lab02.Views.DisplayBooks"
+        mc:Ignorable="d"
+        Title="DisplayBooks" BorderBrush="Black" BorderThickness="2.5" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Background="#FF490057" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <CollectionViewSource x:Key="bookViewSource" d:DesignSource="{d:DesignInstance {x:Type Data:Book}, CreateList=True}"/>
+        <Style x:Key="datagridColor" TargetType="{x:Type DataGridRow}">
+            <Setter Property="Background" Value="#FF681E76"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0,0,1,2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource bookViewSource}">
+        <TextBlock x:Name="userTextBlock" HorizontalAlignment="Left" Margin="163,17,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="40" Width="336" FontSize="20" FontFamily="Comic Sans MS" Foreground="White" FontWeight="Bold"/>
+        <DataGrid x:Name="bookDataGrid" BorderBrush="Black" BorderThickness="2.5" Background="Transparent" RowStyle="{StaticResource datagridColor}" HorizontalScrollBarVisibility="Hidden" IsReadOnly="True" HeadersVisibility="None" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,69,10,10" RowDetailsVisibilityMode="VisibleWhenSelected" MouseDoubleClick="bookDataGrid_MouseDoubleClick" HorizontalGridLinesBrush="#FFA91EC3" VerticalGridLinesBrush="#FFA91EC3" RowHeight="70">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="bookNameColumn" Binding="{Binding BookName}" Header="Book Name" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="welcomeTestBlock" HorizontalAlignment="Left" Margin="67,17,0,0" TextWrapping="Wrap" Text="Welcome," VerticalAlignment="Top" Height="40" Width="104" FontSize="20" FontFamily="Comic Sans MS" Foreground="White"/>
+        <Button x:Name="logOutButton" BorderBrush="Black" BorderThickness="2.5" Content="Log Off" HorizontalAlignment="Left" Margin="660,13,0,0" VerticalAlignment="Top" Width="113" Height="42" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS" Background="#FF6D3478" Foreground="#FFF3E8E8" Click="logOutButton_Click"/>
+        <Image x:Name="easterEggImage" HorizontalAlignment="Left" Height="52" Margin="504,5,0,0" VerticalAlignment="Top" Width="53" Source="1200px-Heart_corazón.svg.png" Visibility="Hidden"/>
+    </Grid>
+</Window>
